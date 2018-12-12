@@ -1,0 +1,50 @@
+import yaml
+geschichten = {}
+a = open("start.yaml", mode="r", encoding="utf8")
+b = open("Maus.yaml", mode="r", encoding="utf8")
+c = open("story.yaml", mode="r", encoding="utf8")
+
+A1 = yaml.load(a)
+B1 = yaml.load(b)
+C1 = yaml.load(c)
+geschichten.update(A1)
+geschichten.update(B1)
+geschichten.update(C1)
+print(geschichten)
+story = geschichten
+
+def processState(state):
+    print()
+    print(state["message"])
+
+    if not "actions" in state:
+        return None
+
+    if "question" in state: print(state["question"])
+    else: print(story["_default_question"])
+
+    action = requestAction(state["actions"])
+    return story[action["next"]]
+
+def requestAction(actions):
+    print()
+    for i, action in (enumerate(state["actions"], start=1)):
+        print("({}) {}".format(i, action["label"]))
+    print()
+
+    while True:
+        try:
+            choice = int(input(story["_prompt"])) - 1
+            if 0 <= choice < len(actions):
+                return actions[choice]
+
+        except:
+            pass
+
+print("Grimms Kiste".center(80, "-"))
+
+state = story["start"]
+while state != None:
+    state = processState(state)
+
+print(80 * "-")
