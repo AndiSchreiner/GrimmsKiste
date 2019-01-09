@@ -1,8 +1,9 @@
 metadaten:
   hersteller: Andi Schreiner
   Datum:
-HdR1:
-  message: Frodo ist ein Gnome
+HP1:
+  message: Harry Potter ist in kleiner Zauberer
+  question: Hallo
   actions:
   - label: Ich versuche, die Tür zu öffnen
     next: HP2
