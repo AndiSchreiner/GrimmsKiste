@@ -1,4 +1,9 @@
 import yaml
+import os
+os.getpid()
+print(os.getpid())
+fh = open("pid.yaml", mode="w", encoding="utf8")
+yaml.dump(os.getpid(), fh, indent=1)
 geschichten = {}
 a = open("start.yaml", mode="r", encoding="utf8")
 b = open("Maus.yaml", mode="r", encoding="utf8")
