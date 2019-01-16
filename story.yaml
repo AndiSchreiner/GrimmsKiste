@@ -2,7 +2,7 @@
 _default_question: Was möchtest du tun?
 _prompt: 'Deine Wahl: '
 start:
-  message: Herzlich Wilkommen zu Grimms Kiste
+  message: "Herzlich Wilkommen zu Grimms Kiste"
   question: Welche Geschichte möchtst du Erleben
   actions:
   - label: Harry Potter
@@ -12,16 +12,23 @@ start:
 HP1:
   message: Harry Potter ist in kleiner Zauberer
   actions:
-  - label: Ich versuche, die Tür zu öffnen
+  - label: Ich versuche, die Tuer zu oeffnen
     next: HP2
   - label: Ich gehe rechts um die Ecke!
     next: gang2
 HP2:
-  message: Hinter der Tür ist ein Hund
+  message: Hinter der Tuer ist ein Hund
   actions:
-  - label: Ich versuche, die Tür zu öffnen
+  - label: Ich streichle den Hund
     next: ende
-  - label: Ich gehe rechts um die Ecke!
-    next: gang2
+  - label: Ich gehe weiter geradeaus!
+    next: gang3
+HdR1:
+  message: Gandalf ist ein Zaberer
+  actions:
+  - label: ich gehe nach links
+    next: HdR2
+  - label: ich gehe nach vorne
+    next: HdR3
 ende:
-  message: Damit ist das Spiel zu Ende. Auf Wiedersehen.
+  message: Damit ist das Spiel zu Endeoder? Auf Wiedersehen.
